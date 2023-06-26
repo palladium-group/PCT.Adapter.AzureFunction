@@ -16,6 +16,9 @@ namespace PCT.Adapter.AzureFunction
             builder.Services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionString));
             builder.Services.AddScoped(typeof(Repository<>));
             builder.Services.AddScoped(typeof(ProductRepository));
+            builder.Services.AddScoped(typeof(CarrierRepository));
+            builder.Services.AddScoped(typeof(LocationRepository));
+            builder.Services.AddScoped(typeof(VendorRepository));
         }
     }
 }

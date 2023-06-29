@@ -20,5 +20,8 @@ namespace PCT.Adapter.AzureFunction
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Carrier> Carriers { get; set; }
+        public DbSet<Location> Locations { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
     }
 }

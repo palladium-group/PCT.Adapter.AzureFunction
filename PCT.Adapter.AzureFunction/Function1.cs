@@ -30,12 +30,15 @@ namespace PCT.Adapter.AzureFunction
             _locationRepository= locationRepository;
             _vendorRepository= vendorRepository;
             _dataContext = dataContext;
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
 
         [FunctionName("Function1")]
         public async Task RunProductTrigger([ServiceBusTrigger("product", "dwh-product", Connection = "ServiceBusConnection")] string productJson, 
             ILogger log)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             try
             {
                 Product product = JsonConvert.DeserializeObject<Product>(productJson);
@@ -52,6 +55,8 @@ namespace PCT.Adapter.AzureFunction
         public async Task RunCarrierTrigger([ServiceBusTrigger("carrier", "dwh-carrier", Connection = "ServiceBusConnection")] string json,
             ILogger log)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             try
             {
                 Carrier carrier = JsonConvert.DeserializeObject<Carrier>(json);
@@ -68,6 +73,7 @@ namespace PCT.Adapter.AzureFunction
         public async Task RunLocationTrigger([ServiceBusTrigger("location", "dwh-location", Connection = "ServiceBusConnection")] string json,
             ILogger log)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             try
             {
                 Location location = JsonConvert.DeserializeObject<Location>(json);
@@ -84,6 +90,7 @@ namespace PCT.Adapter.AzureFunction
         public async Task RunVendorTrigger([ServiceBusTrigger("vendor", "dwh-vendor", Connection = "ServiceBusConnection")] string json,
             ILogger log)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             try
             {
                 Vendor vendor = JsonConvert.DeserializeObject<Vendor>(json);

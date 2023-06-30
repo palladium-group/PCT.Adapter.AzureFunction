@@ -39,4 +39,4 @@ jobs:
           app-name: 'pct-adapter'
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_83B4573B425D4D368597AB9372720CD5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_32DE5E840C0D4A8EA9B143B8D0C5D9ED }}
